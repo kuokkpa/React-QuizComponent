@@ -40,10 +40,10 @@ describe('QuizEnd Component', () => {
       assert(false, "We weren't able to mount the Quiz component.")
     }
 
-    quiz.setState({ quiz_position: quizData.quiz_questions.length + 1 })
+    quiz.setState({ quiz_position: quizData.quiz_questions.length })
     
     assert(quiz.instance().handleResetClick, "There doesn't appear to be a method named `handleResetClick()` in the Quiz component.")
-
+    
     assert(quiz.find('QuizEnd').props().resetClickHandler != null, "The QuizEnd tag in Quiz's JSX doesn't have a `resetClickHandler` property set to the correct value.")
 
     assert(quiz.find('QuizEnd').props().resetClickHandler.name == 'bound handleResetClick', "The QuizEnd tag in Quiz's JSX has a `resetClickHandler` property, but the value isn't set to `this.handleResetClick.bind(this)`.")

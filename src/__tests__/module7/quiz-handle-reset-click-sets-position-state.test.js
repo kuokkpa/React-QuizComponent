@@ -18,7 +18,7 @@ let fs = require('fs');
 let babylon = require('babylon')
 
 describe('Quiz Component', () => {
-  it('handleResetClick() method sets the quiz_position to 1 @quiz-handle-reset-click-sets-position-state', () => {
+  it('handleResetClick() method sets the quiz_position to 0 @quiz-handle-reset-click-sets-position-state', () => {
     assert(quizComponentExists, "The Quiz component hasn't been created yet.")
 
     let quiz;
@@ -29,9 +29,9 @@ describe('Quiz Component', () => {
       assert(false, "We weren't able to mount the Quiz component.")
     }
 
-    quiz.setState({ quiz_position: 3 })
+    quiz.setState({ quiz_position: 2 })
 
-    assert(quiz.state().quiz_position == 3, "The Quiz component's state does not have a key named `quiz_position` with the correct value - are you sure you're still setting the component's state to `quizData`?")
+    assert(quiz.state().quiz_position == 2, "The Quiz component's state does not have a key named `quiz_position` with the correct value - are you sure you're still setting the component's state to `quizData`?")
 
     try {
       quiz.instance().handleResetClick()
@@ -39,6 +39,6 @@ describe('Quiz Component', () => {
       assert(false, "There's not a method named `handleResetClick()` in the Quiz class.")
     }
 
-    assert(quiz.state().quiz_position == 1, "The Quiz component state's `quiz_position` value is not being reset to 1 when the `handleResetClick()` method is called.")
+    assert(quiz.state().quiz_position == 0, "The Quiz component state's `quiz_position` value is not being reset to 0 when the `handleResetClick()` method is called.")
   })
 })
